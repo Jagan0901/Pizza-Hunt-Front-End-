@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+body{
+  margin-top: 1%;
+  background: whitesmoke;
+}
+.logo-name{
+  width: 25%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo-pic{
+  width: 7%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.home-image{
+  width: 100%;
+  /* height: 600px; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav{
+  display: flex;
+  justify-content: space-around;
+  align-content: space-evenly;
+
+}
+
+.login{
+  min-height: 40vh;
+  width: 30%;
+  /* background-color: rgb(245, 191, 200); */
+  display: grid;
+  margin: 20% 35% ;
+  margin-top: 3%;
+ /* place-content: center; */
+
+}
+
+
+.basket{
+  height:100%;
+  color:black;
+  background: white;
+  box-shadow: 3px 3px 10px 0px rgb(50 50 50 / 10%);
+  /* transition: 0.2s; */
+  position: fixed;
+  right: -50px;
+  bottom: 0;
+  margin-bottom: 15px;
+  width: 25%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  margin-top: 100px;
 }
 
-.App-link {
-  color: #61dafb;
+.deals-container{
+  display: flex;
+  /* justify-content: space-around; */
+  flex-direction: column;
+  width: 75%;
+  background: white;
+  box-shadow: 3px 3px 10px 0px rgb(50 50 50 / 10%); 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.deals{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
