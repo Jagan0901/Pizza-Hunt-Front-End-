@@ -1,19 +1,17 @@
-import { CustomizeButton } from "./CustomizeButton"
+import { DialogBox } from "./DialogBox"
+import { data } from "../data";
 
 
 export function Deals(){
 
-    const pizzaPic = {
-        width:'30%',
-        height:'10%',
-      }
+    const price = data.price;
 
  return(
     <div className="deals-container">
     <div className="deals">
-        <h1 style={{flexWrap:'wrap',fontSize:'250%',marginLeft: '20%'}}>Super Value Deal : Personal Pizzas starting at Rs 299</h1>
-        <img style={pizzaPic} src="https://i.pinimg.com/236x/a4/20/ca/a420ca5cabb4357cd6c112aff0330e81.jpg" alt="Pizza-Pic"/>
+        <h1>Super Value Deal : Personal Pizzas starting at Rs {price}</h1>
+        <img src="https://i.pinimg.com/236x/a4/20/ca/a420ca5cabb4357cd6c112aff0330e81.jpg" alt="Pizza-Pic"/>
     </div>
-     <CustomizeButton/>
+     <DialogBox/>
     </div>
 )}

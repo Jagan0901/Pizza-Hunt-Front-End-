@@ -51,11 +51,23 @@ body{
   margin-top: 100px;
 }
 
+.basket h1{
+  padding-top:10%;
+  margin-left:20%
+}
+
+.basket Button{
+  width:75%;
+  margin-bottom:4%;
+  height:7%;
+  right:-5%
+}
+
 .deals-container{
   display: flex;
   /* justify-content: space-around; */
   flex-direction: column;
-  width: 75%;
+  width: 78%;
   background: white;
   box-shadow: 3px 3px 10px 0px rgb(50 50 50 / 10%); 
 }
@@ -65,4 +77,25 @@ body{
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.deals h1{
+  flex-wrap:wrap;
+  font-size:250%;
+  margin-left: 20%
+}
+
+/* .deals img{
+
+} */
+
+.add-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.add-btn div{
+  display: flex;
+  align-items: center;
 }
