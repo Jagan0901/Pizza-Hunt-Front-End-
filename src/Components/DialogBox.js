@@ -6,6 +6,7 @@ import { Customize } from './Customize';
 import { ExtraVeggies } from './ExtraVeggies';
 import { ExtraMeats } from './ExtraMeats';
 import { data } from '../data';
+import { useNavigate } from 'react-router-dom';
 
 // const pizza = [
 //   {
@@ -58,6 +59,8 @@ import { data } from '../data';
 
 export function DialogBox() {
 
+  const navigate = useNavigate();
+
   const [veggieData,setVeggieData]= useState([]);
   const [meatData,setMeatData]= useState([]);
   const [total,setTotal] = useState(0)
@@ -72,13 +75,18 @@ export function DialogBox() {
     setVeggieData(veggiesDataArray);
   }, [veggiesDataArray]);
 
+
+
   useEffect(() => {
     setMeatData(meatsDataArray);
   }, [meatsDataArray]);
 
+
+
   useEffect(()=>{
     setTotal(price+ veggieTotal(veggieData) + meatTotal(meatData));
   },[price,veggieData,meatData])
+  
 
 
     const [open, setOpen] = useState(false);
@@ -120,7 +128,33 @@ export function DialogBox() {
       if (reason !== 'backdropClick') {
         setOpen(false);
       }
-    };    
+    };
+    
+    
+    const handleSubmit = ()=>{
+      let options = {
+        key: "rzp_test_Hiy7DeFeFrGd2G",
+        key_secret:"Rd3GFtUzGk5KFr3gRwjOqa7M",
+        amount: total *100,
+        currency:"INR",
+        name:"Pizza Hunt",
+        description:"Best Pizzas in the Town",
+        handler: function(response){
+          navigate("/");
+          alert(`Order has been confirmed`);
+          
+        },
+        prefill: {
+          // email:"mvel1620r@gmail.com",
+          contact:"0123456789"
+        },
+        theme: {
+          color:"#3399cc"
+        }
+      };
+      var pay = new window.Razorpay(options);
+      pay.open();
+    }
 
   return(
     <div>
@@ -132,7 +166,7 @@ export function DialogBox() {
         <ExtraMeats handleMeat ={handleMeatQuantityBtn} meatData={meatData}/>
         <DialogActions>
         <Button color='error' variant="contained" onClick={handleClose}>Cancel</Button>
-        <Button color='success' variant="contained" >Add To Basket -(₹{total}) </Button>
+        <Button color='success' variant="contained" onClick={handleSubmit}>Checkout -(₹{total}) </Button>
       </DialogActions>
     </Dialog>
     

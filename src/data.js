@@ -1,4 +1,5 @@
 export const data = {
+     name    : "Super Value Deal",
      price   : 299,
      bases   : ['Brooklyn style', 'Handmade pan', 'Crunchy thin', 'Hand tossed', 'Gluten free'],
      sauces  : ['White Garlic Sauce', 'Garlic Ranch Sauce', 'Hummus', 'Buffalo Sauce', 'Marinara Sauce'],
