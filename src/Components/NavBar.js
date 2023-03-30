@@ -22,7 +22,7 @@ export function NavBar() {
    </div>
    <img className="home-image" src={logoImage} alt="Valentine's Day Special"/>
    <br/>
-       <Basket/>
+       {/* <Basket/> */}
    </div>
   )
 }

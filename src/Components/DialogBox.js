@@ -139,7 +139,7 @@ export function DialogBox() {
         currency:"INR",
         name:"Pizza Hunt",
         description:"Best Pizzas in the Town",
-        handler: function(response){
+        handler: ()=>{
           navigate("/");
           alert(`Order has been confirmed`);
           

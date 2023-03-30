@@ -67,7 +67,7 @@ body{
   display: flex;
   /* justify-content: space-around; */
   flex-direction: column;
-  width: 78%;
+  width: 95%;
   background: white;
   box-shadow: 3px 3px 10px 0px rgb(50 50 50 / 10%); 
 }
