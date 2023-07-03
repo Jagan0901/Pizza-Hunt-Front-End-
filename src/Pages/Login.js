@@ -59,17 +59,18 @@ export function Login() {
               if(response.message){
                 setStatus(response.message)
                 console.log(response.message)
+                navigate("/user/dashboard");
               }else if(response.error){
                 setStatus(response.error)
                 console.log(response.error)
               }
             })
 
-            .then(()=>{
-              if(status === "Login Successfully"){
-                navigate("/user/dashboard")
-              }
-            })
+            // .then(()=>{
+            //   if(status === "Login Successfully"){
+            //     navigate("/user/dashboard")
+            //   }
+            // })
 
          }}
          >
