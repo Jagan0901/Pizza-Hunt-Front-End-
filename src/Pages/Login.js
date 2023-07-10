@@ -66,12 +66,6 @@ export function Login() {
               }
             })
 
-            // .then(()=>{
-            //   if(status === "Login Successfully"){
-            //     navigate("/user/dashboard")
-            //   }
-            // })
-
          }}
          >
           Login

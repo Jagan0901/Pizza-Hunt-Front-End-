@@ -64,17 +64,13 @@ export function SignUp() {
                 if (response.message) {
                   setStatus(response.message);
                   console.log(response.message);
+                  navigate("/user/login");
 
                 } else if (response.error) {
                   setStatus(response.error);
                   console.log(response.error);
                 }
-              })
-
-              .then(()=> {
-                if(status==="Created Successfully"){
-                navigate("/user/login")}
-              })               
+              })              
               
           }}
         >
