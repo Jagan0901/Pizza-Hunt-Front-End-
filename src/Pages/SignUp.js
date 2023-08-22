@@ -1,15 +1,15 @@
-import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { API } from "./../API";
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
+import { LoadingButton } from "@mui/lab";
 
 export function SignUp() {
   const navigate = useNavigate();
   const [status, setStatus] = useState("");
   const [mail,setMail] = useState("")
   const [password,setPassword] = useState("");
-  // console.log(process.env.TOKEN);
+  const [loading, setLoading] = useState(false); 
 
   const statusStyles = {
     textAlign:'center',
@@ -41,10 +41,13 @@ export function SignUp() {
           onChange={(event)=> setPassword(event.target.value)}
         />
 
-        <Button
+        <LoadingButton
           variant="contained"
           color="primary"
+          loading={loading}
           onClick={() => {
+            if(!mail || !password) return setStatus("Please fill out the fields");
+            setLoading(true);
 
             const newUser = {
               email: mail,
@@ -63,19 +66,22 @@ export function SignUp() {
               .then((response) => {
                 if (response.message) {
                   setStatus(response.message);
-                  console.log(response.message);
                   navigate("/user/login");
+                  setLoading(false);
 
                 } else if (response.error) {
                   setStatus(response.error);
-                  console.log(response.error);
+                  setLoading(false);
                 }
+              }).catch((err)=>{
+                  setStatus(err.message);
+                  setLoading(false);
               })              
               
           }}
         >
           Sign Up
-        </Button>
+        </LoadingButton>
         <h3 style={statusStyles}>{status}</h3>
       </form>
     </div>
