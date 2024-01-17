@@ -58,7 +58,7 @@ export function SignUp() {
             fetch(`${API}/users/signup`, {
               method: "POST",
               body: JSON.stringify(newUser),
-              headers: { "Content-Type": "application/json", "x-auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWM5MDk5MzQ5OGNlZjk4YzI0YWNjNCIsImlhdCI6MTY3NjQ1MTY1MH0.ZaQzhseCJyzJIggLR9VsWrz4JkCkNOYVtwWdWobz0b4" },
+              headers: { "Content-Type": "application/json"},
             })
 
               .then((data) => data.json())
