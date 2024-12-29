@@ -26,6 +26,38 @@ export function Login() {
     setPassword("Password@123");
   }
 
+  const handleLogin = ()=>{
+    if (!mail || !password) return setStatus("Please fill out the fields");
+    setLoading(true);
+    const user = {
+      email: mail,
+      password: password,
+    };
+    fetch(`${API}/users/login`, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((data) => data.json())
+
+      .then((response) => {
+        if (response.message) {
+          setStatus(response.message);
+          navigate("/user/dashboard");
+          setLoading(false);
+        } else if (response.error) {
+          setStatus(response.error);
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        setStatus(err.message);
+        setLoading(false);
+      });
+  }
+
   return (
     <div>
       <h2 style={{ textAlign: "center", marginTop: "10%" }}>User Login</h2>
@@ -35,6 +67,7 @@ export function Login() {
           label="Enter Email"
           variant="outlined"
           type="email"
+          className="login-field"
           value={mail}
           onChange={(event) => setMail(event.target.value)}
         />
@@ -44,6 +77,7 @@ export function Login() {
           label="Enter Password"
           variant="outlined"
           type="password"
+          className="login-field"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
@@ -52,41 +86,18 @@ export function Login() {
           variant="contained"
           color="success"
           type="submit"
+          className="login-btn"
           loading={loading}
-          onClick={() => {
-            if(!mail || !password) return setStatus("Please fill out the fields");
-            setLoading(true);
-            const user = {
-              email: mail,
-              password: password,
-            };
-            fetch(`${API}/users/login`, {
-              method: "POST",
-              body: JSON.stringify(user),
-              headers: {
-                "Content-Type": "application/json"                
-              },
-            })
-              .then((data) => data.json())
-
-              .then((response) => {
-                if (response.message) {
-                  setStatus(response.message);
-                  navigate("/user/dashboard");
-                  setLoading(false);
-                } else if (response.error) {
-                  setStatus(response.error);
-                  setLoading(false)
-                }
-              }).catch((err)=>{
-                  setStatus(err.message);
-                  setLoading(false);
-              })
-          }}
+          onClick={handleLogin}
         >
           Login
         </LoadingButton>
-        <Button variant="contained" color="secondary" onClick={getUserCredential}>
+        <Button
+          variant="contained"
+          color="secondary"
+          className="login-btn"
+          onClick={getUserCredential}
+        >
           To Get User Credential
         </Button>
         <h3 style={statusStyles}>{status}</h3>

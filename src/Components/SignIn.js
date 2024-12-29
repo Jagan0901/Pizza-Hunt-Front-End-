@@ -6,7 +6,8 @@ export function SignIn() {
     const navigate = useNavigate()
   return (
     <div>
-        <Button 
+        <Button
+        className='signIn' 
          color='error'
          onClick={()=> navigate("/user/login")}
          >Sign in</Button>

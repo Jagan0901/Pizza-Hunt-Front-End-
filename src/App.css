@@ -2,6 +2,11 @@ body{
   margin-top: 1%;
   background: whitesmoke;
 }
+
+.logo{
+  text-align: center;
+}
+
 .logo-name{
   width: 25%;
 }
@@ -25,12 +30,17 @@ body{
 .login{
   min-height: 40vh;
   width: 30%;
-  /* background-color: rgb(245, 191, 200); */
   display: grid;
-  margin: 20% 35% ;
-  margin-top: 3%;
- /* place-content: center; */
+  margin: 0% ;
+  margin-left: 35%;
+}
 
+.login-field {
+  margin-bottom: 5px !important;
+}
+
+.login-btn {
+  margin-top: 5px !important;
 }
 
 
@@ -81,13 +91,14 @@ body{
 
 .deals h1{
   flex-wrap:wrap;
-  font-size:250%;
-  margin-left: 20%
+  font-size:30px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
-/* .deals img{
-
-} */
+.deals img{
+  width: 25%;
+}
 
 .add-btn{
   display: flex;
@@ -98,4 +109,50 @@ body{
 .add-btn div{
   display: flex;
   align-items: center;
+}
+
+
+/* Mobiles */
+@media only screen and (max-width: 600px) {
+  /* Styles for screens up to 600px wide */
+  .signIn{
+    font-size: 12px !important;
+  }
+
+    .login {
+      min-height: 40vh;
+        display: grid;
+        padding: 0%;
+        margin: 0%;
+      width: 100%;
+    }
+
+    .login-field{
+      margin-bottom: 5px !important;
+    }
+
+    .login-btn{
+      margin-top: 5px !important;
+    }
+
+    .deals img {
+      width: 50%;
+    }
+}
+
+
+/* Tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* Styles for screens between 601px and 1024px wide */
+  .signIn {
+      font-size: 12px !important;
+    }
+
+        .login {
+          min-height: 40vh;
+          width: 60%;
+          display: grid;
+          margin: 0%;
+          margin-left: 20%;
+        }
 }
